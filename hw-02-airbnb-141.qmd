@@ -32,11 +32,15 @@ We'll use the **tidyverse** package for much of the data wrangling and visualisa
 library(tidyverse)
 
 
-# May need to run these first:
+# Two options:
 
+# Easier: Use shared files on cloud
+#edibnb = readRDS("~/shared_readwrite/stat141/edibnb.rds")
+
+# Alternatively, you can download on your local machine
 #install.packages("devtools")
 #devtools::install_github("tidyverse/dsbox")
-library(dsbox)
+#library(dsbox)
 ```
 
 ## Data
