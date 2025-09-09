@@ -11,7 +11,7 @@ In this mini analysis we work with the data used in the FiveThirtyEight story ti
 
 ## Data and packages
 
-We start with loading the packages we'll use.
+We start with loading the packages and the data we'll use.
 
 ```{r}
 #| label: load-packages
@@ -20,6 +20,9 @@ We start with loading the packages we'll use.
 
 library(fivethirtyeight)
 library(tidyverse)
+
+
+
 ```
 
 The dataset contains information on `r nrow(bechdel)` movies released between `r min(bechdel$year)` and `r max(bechdel$year)`. However we'll focus our analysis on movies released between 1990 and 2013.
