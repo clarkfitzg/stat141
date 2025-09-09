@@ -18,11 +18,12 @@ We start with loading the packages and the data we'll use.
 #| warning: false
 #| message: false
 
-library(fivethirtyeight)
 library(tidyverse)
 
+bechdel <- read_rds("https://github.com/clarkfitzg/stat141/raw/refs/heads/main/data/bechdel.rds")
 
-
+# Alternatively:
+#library(fivethirtyeight)
 ```
 
 The dataset contains information on `r nrow(bechdel)` movies released between `r min(bechdel$year)` and `r max(bechdel$year)`. However we'll focus our analysis on movies released between 1990 and 2013.
