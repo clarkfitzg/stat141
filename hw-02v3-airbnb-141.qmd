@@ -9,7 +9,6 @@ editor: visual
 
 ```{r include = FALSE}
 knitr::opts_chunk$set(
-  #eval = FALSE,
   out.width = "80%",
   fig.asp = 0.618,
   fig.width = 6
