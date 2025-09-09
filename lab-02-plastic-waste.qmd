@@ -89,6 +89,13 @@ plastic_waste %>%
 Did you expect this result?
 You might consider doing some research on Trinidad and Tobago to see why plastic waste per capita is so high there, or whether this is a data error.
 
+1.  Modify the code below to redefine the variable `plastic_waste` to include only those rows where `plastic_waste_per_cap` is less than or equal to 1.
+
+```{r}
+plastic_waste %>%
+  filter(plastic_waste_per_cap <= 3.5)
+```
+
 1.  Plot, using histograms, the distribution of plastic waste per capita faceted by continent. What can you say about how the continents compare to each other in terms of their plastic waste per capita?
 
 ```{marginfigure}
