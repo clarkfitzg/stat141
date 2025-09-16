@@ -39,7 +39,7 @@ library(tidyverse)
 # Alternatively, you can download on your local machine
 #install.packages("devtools")
 #devtools::install_github("tidyverse/dsbox")
-#library(dsbox)
+library(dsbox)
 ```
 
 ## Data
@@ -82,7 +82,9 @@ ggplot(data = ___, mapping = aes(x = ___)) +
 Copy and paste the code above below, and fill in the blanks.
 
 ```{r}
-
+ggplot(data = edibnb, mapping = aes(x = price)) +
+  geom_histogram(binwidth = 20) +
+  facet_wrap(~neighbourhood)
 ```
 
 Let's de-construct this code:
@@ -104,4 +106,16 @@ top3
 ```
 
 4.  Filter the data for these three neighbourhoods and make ridge plots of the distributions of listing prices in these three neighbourhoods. Use a pipeline calculate the minimum, mean, median, standard deviation, IQR, and maximum listing price in each of these neighbourhoods. Use the visualisation and the summary statistics to describe the distribution of listing prices in the neighbourhoods. (Your answer will include two pipelines, one of which ends in a visualisation, and a narrative.)
+
+```{r}
+top3$neighbourhood
+```
+
+```{r}
+filter(edibnb, neighbourhood %in% top3$neighbourhood) %>%
+  ggplot(mapping = aes(x = price, color = neighbourhood)) +
+  geom_density(linewidth = 1)
+```
+
+4.  
 5.  Create a visualization that will help you compare the distribution of review scores (`review_scores_rating`) across neighbourhoods. You get to decide what type of visualisation to create and there is more than one correct answer! In your answer, include a brief interpretation of how Airbnb guests rate properties in general and how the neighbourhoods compare to each other in terms of their ratings.
