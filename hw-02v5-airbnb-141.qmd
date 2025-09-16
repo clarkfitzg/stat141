@@ -61,12 +61,11 @@ How many observations (rows) does the dataset have?
 # TODO
 ```
 
-
 # Q2
 
 What does each row in the dataset represent?
 
-TODO
+TODO- write and explain
 
 Each column represents a variable. We can get a list of the variables in the data frame using the `names()` function.
 
@@ -80,7 +79,9 @@ You can find descriptions of each of the variables in the help file for the data
 **Note:** The plot will give a warning about some observations with non-finite values for price being removed. Don't worry about the warning, it simply means that 199 listings in the data didn't have prices available, so they can't be plotted.
 ```
 
-3.  Create a faceted histogram where each facet represents a neighbourhood and displays the distribution of Airbnb prices in that neighbourhood. Think critically about whether it makes more sense to stack the facets on top of each other in a column, lay them out in a row, or wrap them around. Along with your visualisation, include your reasoning for the layout you chose for your facets.
+## Q3
+
+Create a faceted histogram where each facet represents a neighbourhood and displays the distribution of Airbnb prices in that neighbourhood. Think critically about whether it makes more sense to stack the facets on top of each other in a column, lay them out in a row, or wrap them around. Along with your visualisation, include your reasoning for the layout you chose for your facets.
 
 ``` r
 ggplot(data = ___, mapping = aes(x = ___)) +
@@ -115,4 +116,3 @@ Create a visualization that will help you compare the distribution of review sco
 ```{r}
 
 ```
-
