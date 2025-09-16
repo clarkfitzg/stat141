@@ -1,7 +1,9 @@
 ---
-title: "Hotel bookings - data wrangling"
+title: "HW3 - Hotel bookings - data wrangling"
 author: "TODO - your name"
-format: html
+format:
+  html:
+    self-contained: true
 editor: visual
 ---
 
@@ -18,21 +20,22 @@ library(tidyverse)
 #| message: false
 
 # From TidyTuesday: https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-02-11/readme.md
-hotels <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-02-11/hotels.csv")
+hotels <- read_csv("https://github.com/clarkfitzg/stat141/raw/refs/heads/main/data/hotels.csv")
+
+# If that doesn't work, then on the cloud try:
+#hotels <- read_csv("~/shared/stat141/data/hotels.csv")
 ```
 
 ## Exercises
 
 ### Exercise 1.
 
-Warm up! Take a look at an overview of the data with the `skim()` function.
+Warm up! How many rows and columns are in this data?
 
-**Note:** I already gave you the answer to this exercise. You just need to knit the document and view the output. A definition of all variables is given in the [Data dictionary] section at the end, though you don't need to familiarize yourself with all variables in order to work through these exercises.
+**Note:** A definition of all variables is given in the [Data dictionary] section at the end, though you don't need to familiarize yourself with all variables in order to work through these exercises.
 
 ```{r}
-#| label: hotels-skim
-
-skim(hotels)
+# Your code here
 ```
 
 ### Exercise 2.
@@ -45,7 +48,7 @@ Fill in the blanks for filtering for hotel bookings where the guest is **not** f
 
 ```{r}
 #| label: travel-whim
-#| eval: false
+#| eval: FALSE
 
 hotels %>%
   filter(
@@ -67,7 +70,7 @@ In the following chunk, replace
 
 ```{r}
 #| label: some-children
-#| eval: false
+#| eval: FALSE
 
 hotels %>%
   filter(
@@ -97,11 +100,7 @@ Do you think it's more likely to find bookings with children or babies in city h
 
 Create a frequency table of the number of `adults` in a booking. Display the results in descending order so the most common observation is on top. What is the most common number of adults in bookings in this dataset? Are there any surprising results?
 
-**Note:** Don't forget to label your R chunk as well (where it says `label-me-1`). Your label should be short, informative, and shouldn't include spaces. It also shouldn't repeat a previous label, otherwise R Markdown will give you an error about repeated R chunk labels.
-
 ```{r}
-#| label: label-me-1
-
 # add code here
 # pay attention to correctness and code style
 ```
@@ -110,11 +109,7 @@ Create a frequency table of the number of `adults` in a booking. Display the res
 
 Repeat Exercise 5, once for canceled bookings (`is_canceled` coded as 1) and once for not canceled bookings (`is_canceled` coded as 0). What does this reveal about the surprising results you spotted in the previous exercise?
 
-**Note:** Don't forget to label your R chunk as well (where it says `label-me-2`).
-
 ```{r}
-#| label: label-me-2
-
 # add code here
 # pay attention to correctness and code style
 ```
@@ -124,8 +119,6 @@ Repeat Exercise 5, once for canceled bookings (`is_canceled` coded as 1) and onc
 Calculate minimum, mean, median, and maximum average daily rate (`adr`) grouped by `hotel` type so that you can get these statistics separately for resort and city hotels. Which type of hotel is higher, on average?
 
 ```{r}
-#| label: label-me-3
-
 # add code here
 # pay attention to correctness and code style
 ```
@@ -137,18 +130,33 @@ We observe two unusual values in the summary statistics above -- a negative mini
 **Hint:** For example, you can `filter` for the given `adr` amounts and `select` the relevant columns.
 
 ```{r}
-#| label: label-me-4
-
 # add code here
 # pay attention to correctness and code style
 ```
 
+### Exercise 9.
+
+Use ggplot to create a histogram of the average daily rate. First filter the data to exclude the obvious outliers. Include a title and informative x and y labels on the plot.
+
+```{r}
+
+```
+
+### Exercise 10.
+
+Come up with your own question about the hotels data, and use ggplot to create a visualization to answer the question. Comment on what your plot shows.
+
+```{r}
+```
+
 ## Data dictionary
+
+{data-link="Data dictionary"}
 
 Below is the full data dictionary. Note that it is long (there are lots of variables in the data), but we will be using a limited set of the variables for our analysis.
 
 | variable | class | description |
-|:------------|:------------|:----------------------------------------------|
+|:----------------|:----------------|:--------------------------------------|
 | hotel | character | Hotel (H1 = Resort Hotel or H2 = City Hotel) |
 | is_canceled | double | Value indicating if the booking was canceled (1) or not (0) |
 | lead_time | double | Number of days that elapsed between the entering date of the booking into the PMS and the arrival date |
