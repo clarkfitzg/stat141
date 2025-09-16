@@ -25,5 +25,10 @@ starwars %>%
   filter(mass < 50) %>%
   arrange(height)
 
-arrange(filter(starwars, hair_color == "brown"), birth_year)
+slice_head(filter(starwars, hair_color == "brown"), n = 10)
 
+starwars %>%
+  filter(hair_color == "brown") %>%
+  slice_head(n = 10)
+
+slice_head(filter(starwars, hair_color == "brown"), n = 10)
