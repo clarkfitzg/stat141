@@ -32,3 +32,11 @@ starwars %>%
   slice_head(n = 10)
 
 slice_head(filter(starwars, hair_color == "brown"), n = 10)
+
+starwars %>%
+  filter(homeworld == "Naboo") %>%
+  slice_head(n = 10)
+
+starwars %>%
+  select(name, birth_year) %>%
+  arrange(birth_year)
