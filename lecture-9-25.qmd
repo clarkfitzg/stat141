@@ -1,0 +1,101 @@
+---
+title: "lecture-9-25"
+format: html
+editor: visual
+---
+
+```{r}
+library(tidyverse)
+```
+
+
+## 1 Median is robust
+
+The median is a __robust statistic__, much more resistant to outliers than the mean.
+
+```{r}
+# incomes in thousands of dollars (no outlier)
+income <- c(52, 55, 75, 90, 68)
+
+mean(income)
+median(income)
+```
+
+Quick histogram using base R (not tidyverse / ggplot2)
+
+```{r}
+hist(income)
+```
+
+
+Now add a very high income earner (outlier).
+
+```{r}
+outlier <- NA # TODO: Change this to a really large income
+income_outlier <- c(income, outlier)
+
+mean(income_outlier)
+median(income_outlier)
+```
+
+
+## 2 Histogram bins matter
+
+Why did I only choose those with carat < 3?
+
+Experiment with the number of bins here and see if you can find any interesting patterns.
+
+```{r}
+diamonds |>
+  filter(carat < 3) |>
+  ggplot(aes(x = carat)) +
+  geom_histogram(bins = 5)
+```
+
+## 3 Count
+
+Are there more diamonds slightly under one carat, or slightly larger than one carat?
+
+```{r}
+diamonds |>
+  filter(0.95 < carat, carat < 1.05) |>
+  count(carat)
+```
+
+## 4 Group by
+
+What does the following code do?
+
+```{r}
+diamonds |>
+  group_by(cut) %>%
+  summarize(price = median(price))
+```
+
+## 5 Extracting columns
+
+Try to calculate the median `mass` of the characters in `starwars`.
+
+```{r}
+starwars |>
+  select(mass)
+```
+
+```{r}
+starwars |>
+  pull(mass)
+```
+
+Let's find the median of the medians!
+
+
+```{r}
+mmprice <- diamonds |>
+  group_by(cut) |>
+  summarize(price = median(price)) |>
+  pull(price) |>
+  median()
+
+mmprice
+```
+
