@@ -15,3 +15,37 @@ We're going to look at some inflation data:
 <https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG>
 
 How are we going to read this into R?
+
+I've downloaded it here to make it easier: <https://github.com/clarkfitzg/stat141/blob/main/data/API_FP.CPI.TOTL.ZG_DS2_en_csv_v2_1126632.csv>
+
+What is inflation in consumer price index (CPI)?
+
+<https://raw.githubusercontent.com/clarkfitzg/stat141/refs/heads/main/data/Metadata_Indicator_API_FP.CPI.TOTL.ZG_DS2_en_csv_v2_1126632.csv>
+
+We need a reasonable goal. What would you like to do with CPI data per country?
+
+## 2 read
+
+```{r}
+inflation <- read_csv("https://github.com/clarkfitzg/stat141/raw/refs/heads/main/data/API_FP.CPI.TOTL.ZG_DS2_en_csv_v2_1126632.csv", skip = 4, skip_empty_rows = FALSE)
+```
+
+What are the `skip = 4` and `skip_empty_rows` doing above? What happens when we remove them?
+
+## 3 pivot
+
+We can't do a thing with this data using `tidyverse` tools until it's in tidy from: every row an observation, and every column a variable.
+
+Let's start by dropping these columns we don't need.
+
+```{r}
+inf2 <- inflation |>
+  select(!c("Indicator Name", "Indicator Code", "...70"))
+#pivot_longer()
+```
+
+Now pivot.
+
+```{r}
+inflong <- pivot_longer(inf2, cols = where(is.numeric), names_to = "year", values_to = "inflation")
+```
