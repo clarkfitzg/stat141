@@ -4,23 +4,14 @@ format: html
 editor: visual
 ---
 
-## Quarto
-
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
-
-## Running Code
-
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
-
 ```{r}
-1 + 1
+library(tidyverse)
 ```
 
-You can add options to executable code like this
+## 1 data
 
-```{r}
-#| echo: false
-2 * 2
-```
+We're going to look at some inflation data:
 
-The `echo: false` option disables the printing of code (only output is displayed).
+<https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG>
+
+How are we going to read this into R?
