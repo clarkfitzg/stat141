@@ -74,4 +74,19 @@ arrange(filter(mpg, cyl == 4), displ)
 # f is the function
 # x1, x2, x3 are the arguments
 
+# 1 beginning, same line
+ladies <- starwars |>
+  filter(species == "Human") |>
+  filter(sex == "female")
 
+# 2 beginning, new line
+ladies <- 
+  starwars |>
+  filter(species == "Human") |>
+  filter(sex == "female")
+
+# 3 end
+starwars |>
+  filter(species == "Human") |>
+  filter(sex == "female") ->
+  ladies

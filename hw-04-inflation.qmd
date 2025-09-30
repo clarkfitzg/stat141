@@ -1,0 +1,135 @@
+---
+title: "HW4 - inflation"
+author: "TODO - your name"
+format:
+  html:
+    self-contained: true
+editor: visual
+---
+
+```{r}
+library(tidyverse)
+```
+
+## Data
+
+For this part of the analysis you will work with inflation data from various countries in the world.
+
+Data source: https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG
+
+```{r}
+inflation_wide <- read_csv("https://github.com/clarkfitzg/stat141/raw/refs/heads/main/data/API_FP.CPI.TOTL.ZG_DS2_en_csv_v2_1126632.csv", skip = 4)
+```
+
+## Questions
+
+### Question 1
+
+Get to know the data.
+
+a.  `glimpse()` at the `country_inflation` data frame and answer the following questions based on the output.
+    -   How many rows does `country_inflation` have and what does each row represent?
+    -   How many columns does `country_inflation` have and what does each column represent?
+b.  Display the names of the countries included in the dataset. How many distinct countries are there?
+
+::: callout-tip
+Find distinct countries with `distinct()` and print all countries with `print(n = ___)` added to your pipeline, where the blank is the number of distinct countries.
+:::
+
+### Question 2
+
+Which countries had the top three highest inflation rates in 2023? Your output should be a data frame with two columns, `country` and `2023`, with inflation rates in descending order, and three rows for the top three countries. Briefly comment on how the inflation rates for these countries compare to the inflation rate for United States in that year.
+
+::: callout-tip
+Column names that are numbers are not considered "proper" in R, therefore to select them you’ll need to surround them with backticks (\`).
+:::
+
+### Question 3
+
+In a single pipeline,
+
+-   calculate the ratio of the inflation in 2023 to the inflation in 1993 for each country and store this information in a new column called `inf_ratio`,
+-   select the variables `country` and `inf_ratio`, and
+-   store the result in a new data frame called `country_inflation_ratios`.
+
+Then, in two separate pipelines,
+
+-   arrange `country_inflation_ratios` in increasing order of `inf_ratio` and
+-   arrange `country_inflation_ratios` in decreasing order of `inf_ratio`.
+
+Which country’s inflation increase is the largest over this time period and by how much? Which country’s inflation decrease is the largest over this time period and by how much?
+
+::: callout-tip
+For this question you'll once again need to use variables whose names are numbers (years) in your pipeline. Make sure to surround the names of such variables with backticks (`` ` ``).
+:::
+
+### Question 4
+
+Reshape (pivot) `country_inflation` such that each row represents a country/year combination. Then, display the resulting data frame and state how many rows and columns it has and write a sentence stating the number of rows and columns as well as the names of the columns of the resulting data frame.
+
+Requirements:
+
+-   Your code must use one of `pivot_longer()` or `pivot_wider()`. There are other ways you can do this reshaping move in R, but this question requires solving this problem by pivoting.
+-   In your `pivot_*()` function, you must use `names_transform = as.numeric` as an argument to transform the variable type to numeric as you pivot the data so that in the resulting data frame the year variable is numeric.
+-   The resulting data frame must be saved as something other than `country_inflation` so you (1) can refer to this data frame later in your analysis and (2) do not overwrite `country_inflation`. Use a short but informative name.
+
+::: callout-warning
+The last question in Part 1 as well as some questions in Part 2 require the use of the pivoted data frame from Question 4.
+:::
+
+### Question 5
+
+Use a separate, single pipeline to answer each of the following questions.
+
+Requirement: Your code must use the `filter()` function for each part, not `arrange()`.
+
+a.  What is the highest inflation rate observed between 1993 and 2023? The output of the pipeline should be a data frame with one row and three columns. In addition to code and output, your response should include a single sentence stating the country and year.
+
+b.  What is the lowest inflation rate observed between 1993 and 2023? The output of the pipeline should be a data frame with one row and three columns. In addition to code and output, your response should include a single sentence stating the country and year.
+
+c.  Putting (a) and (b) together: What are the highest and the lowest inflation rates observed between 1993 and 2023? The output of the pipeline should be a data frame with two rows and three columns.
+
+### Question 6
+
+**More on inflation around the world.**
+
+For this question you will use the pivoted version of the `country_inflation` dataset that you created in Question 4.
+
+a\. Create a vector called `countries_of_interest` which contains the names of up to five countries you want to visualize the inflation rates for over the years. For example, if these countries are Mexico and United States, you can express this as follows:
+
+```{r}
+countries_of_interest <- c("Mexico", "United States")
+```
+
+If they are Mexico, United States, and South Korea, you can express this as follows:
+
+```{r}
+# fmt: skip
+countries_of_interest <- c("Mexico", "United States", "Korea, Rep.")
+```
+
+So on and so forth... Then, in 1-2 sentences, state why you chose these countries.
+
+::: callout-note
+Your `countries_of_interest` should consist of no more than five countries. Make sure that the spelling of your countries matches how they appear in the dataset.
+:::
+
+b\. In a single pipeline, filter your pivoted dataset to include only the `countries_of_interest` from part (a), and save the resulting data frame with a new name so you (1) can refer to this data frame later in your analysis and (2) do not overwrite the data frame you're starting with. Use a short but informative name. Then, in a new pipeline, find the `distinct()` countries in the data frame you created.
+
+::: callout-tip
+The number of distinct countries in the filtered data frame you created in part (b) should equal the number of countries you chose in part (a). If it doesn't, you might have misspelled a country name or made a mistake in filtering for these countries. Go back and correct your work.
+:::
+
+c\. Using your data frame from the previous question, create a plot of annual inflation vs. year for these countries. Then, in a few sentences, describe the patterns you observe in the plot, particularly focusing on anything you find surprising or not surprising, based on your knowledge (or lack thereof) of these countries economies.
+
+Requirements for the plot:
+
+-   Data should be represented with points as well as lines connecting the points for each country.
+
+-   Each country should be represented by a different color line and different color and shape points.
+
+-   Axes and legend should be properly labeled.
+
+-   The plot should have an appropriate title (and optionally a subtitle).
+
+-   Plot should be customized in at least one way – you could use a different than default color scale, or different than default theme, or some other customization.
