@@ -1,5 +1,5 @@
 ---
-title: "HW4 - inflation"
+title: "HW5 - inflation"
 author: "TODO - your name"
 format:
   html:
@@ -74,14 +74,12 @@ Requirements:
 -   The resulting data frame must be saved as something other than `country_inflation` so you (1) can refer to this data frame later in your analysis and (2) do not overwrite `country_inflation`. Use a short but informative name.
 
 ::: callout-warning
-The last question in Part 1 as well as some questions in Part 2 require the use of the pivoted data frame from Question 4.
+Subsequent questions may require the use of the pivoted data frame from Question 4.
 :::
 
 ### Question 5
 
 Use a separate, single pipeline to answer each of the following questions.
-
-Requirement: Your code must use the `filter()` function for each part, not `arrange()`.
 
 a.  What is the highest inflation rate observed between 1993 and 2023? The output of the pipeline should be a data frame with one row and three columns. In addition to code and output, your response should include a single sentence stating the country and year.
 
