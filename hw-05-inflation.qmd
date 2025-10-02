@@ -27,9 +27,9 @@ inflation_wide <- read_csv("https://github.com/clarkfitzg/stat141/raw/refs/heads
 
 Get to know the data.
 
-a.  `glimpse()` at the `country_inflation` data frame and answer the following questions based on the output.
-    -   How many rows does `country_inflation` have and what does each row represent?
-    -   How many columns does `country_inflation` have and what does each column represent?
+a.  Look at the `inflation_wide` data frame and answer the following questions based on the output.
+    -   How many rows does `inflation_wide` have and what does each row represent?
+    -   How many columns does `inflation_wide` have and what does each column represent?
 b.  Display the names of the countries included in the dataset. How many distinct countries are there?
 
 ::: callout-tip
@@ -50,12 +50,12 @@ In a single pipeline,
 
 -   calculate the ratio of the inflation in 2023 to the inflation in 1993 for each country and store this information in a new column called `inf_ratio`,
 -   select the variables `country` and `inf_ratio`, and
--   store the result in a new data frame called `country_inflation_ratios`.
+-   store the result in a new data frame called `inflation_wide_ratios`.
 
 Then, in two separate pipelines,
 
--   arrange `country_inflation_ratios` in increasing order of `inf_ratio` and
--   arrange `country_inflation_ratios` in decreasing order of `inf_ratio`.
+-   arrange `inflation_wide_ratios` in increasing order of `inf_ratio` and
+-   arrange `inflation_wide_ratios` in decreasing order of `inf_ratio`.
 
 Which country’s inflation increase is the largest over this time period and by how much? Which country’s inflation decrease is the largest over this time period and by how much?
 
@@ -65,13 +65,13 @@ For this question you'll once again need to use variables whose names are number
 
 ### Question 4
 
-Reshape (pivot) `country_inflation` such that each row represents a country/year combination. Then, display the resulting data frame and state how many rows and columns it has and write a sentence stating the number of rows and columns as well as the names of the columns of the resulting data frame.
+Reshape (pivot) `inflation_wide` such that each row represents a country/year combination. Then, display the resulting data frame and state how many rows and columns it has and write a sentence stating the number of rows and columns as well as the names of the columns of the resulting data frame.
 
 Requirements:
 
 -   Your code must use one of `pivot_longer()` or `pivot_wider()`. There are other ways you can do this reshaping move in R, but this question requires solving this problem by pivoting.
 -   In your `pivot_*()` function, you must use `names_transform = as.numeric` as an argument to transform the variable type to numeric as you pivot the data so that in the resulting data frame the year variable is numeric.
--   The resulting data frame must be saved as something other than `country_inflation` so you (1) can refer to this data frame later in your analysis and (2) do not overwrite `country_inflation`. Use a short but informative name.
+-   The resulting data frame must be saved as something other than `inflation_wide` so you (1) can refer to this data frame later in your analysis and (2) do not overwrite `inflation_wide`. Use a short but informative name.
 
 ::: callout-warning
 Subsequent questions may require the use of the pivoted data frame from Question 4.
@@ -91,7 +91,7 @@ c.  Putting (a) and (b) together: What are the highest and the lowest inflation 
 
 **More on inflation around the world.**
 
-For this question you will use the pivoted version of the `country_inflation` dataset that you created in Question 4.
+For this question you will use the pivoted version of the `inflation_wide` dataset that you created in Question 4.
 
 a\. Create a vector called `countries_of_interest` which contains the names of up to five countries you want to visualize the inflation rates for over the years. For example, if these countries are Mexico and United States, you can express this as follows:
 
