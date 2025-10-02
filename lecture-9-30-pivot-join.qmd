@@ -41,11 +41,22 @@ Let's start by dropping these columns we don't need.
 ```{r}
 inf2 <- inflation |>
   select(!c("Indicator Name", "Indicator Code", "...70"))
-#pivot_longer()
 ```
 
-Now pivot.
+Now pivot and fix the data type for the new `year` column.
 
 ```{r}
-inflong <- pivot_longer(inf2, cols = where(is.numeric), names_to = "year", values_to = "inflation")
+inflong <- pivot_longer(inf2, cols = where(is.numeric), names_to = "year", values_to = "inflation") |>
+  mutate(year = as.integer(year))
+```
+
+## 4 plot
+
+Let's plot and make sure it worked.
+
+```{r}
+filter(inflong, `Country Name` == "United States") |>
+  ggplot(aes(x = year, y = inflation)) +
+  geom_point() +
+  geom_line()
 ```
