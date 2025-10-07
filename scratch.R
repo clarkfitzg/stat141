@@ -90,3 +90,11 @@ starwars |>
   filter(species == "Human") |>
   filter(sex == "female") ->
   ladies
+
+mpg |>
+  filter(displ <= 2) |>
+  select(model, displ, year, class)
+
+mpg |>
+  filter(class == "pickup") |>
+  select(model, displ, year, class)

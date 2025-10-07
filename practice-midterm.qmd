@@ -1,0 +1,108 @@
+---
+title: "PRACTICE midterm"
+author: "TODO"
+format:
+  html:
+    self-contained: true
+editor: visual
+---
+
+```{r, warning=FALSE, message=FALSE}
+library(tidyverse)
+```
+
+### Q1
+
+What does one row in the `msleep` data represent?
+
+### Q2
+
+How many rows and columns are in the `msleep` data?
+
+```{r}
+
+```
+
+### Q3
+
+Which animal sleeps the most? The least?
+
+```{r}
+
+```
+
+### Q4
+
+Which animal sleeps more, cats or dogs?
+
+```{r}
+
+```
+
+### Q5
+
+Create a data frame containing the median values of `sleep_total` for each of the values of `vore`, namely, carnivore, omnivore, and herbivore.
+
+```{r}
+
+```
+
+### Q6
+
+Create a scatter plot with `sleep_total` on the x axis and `sleep_rem` on the y axis.
+
+```{r}
+
+```
+
+### Q7
+
+Comment on the above plot. What does it show?
+
+### Q8
+
+Create a new column `prop_brain` representing the proportion of brain weight relative to body weight. That is `brainwt / bodywt`. Create a scatter plot with `prop_brain` on the x axis, and `sleep_total` on the y axis.
+
+```{r}
+
+```
+
+### Q9
+
+Comment on the above plot. What does it show?
+
+### Q10
+
+Create a histogram of `total_sleep`
+
+```{r}
+
+```
+
+### Q11
+
+Comment on the above plot. What does it show?
+
+### Q12
+
+```{r}
+mutate(msleep, domesticated = (conservation == "domesticated")) |>
+  ggplot(aes(x = domesticated, y = sleep_total)) +
+  geom_boxplot() +
+  labs(y = "total sleep (hours)") +
+  theme_minimal()
+```
+
+Comment on the above plot. What does it show?
+
+### Q13
+
+Come up with an interesting question that you might be able to answer using the `msleep` data.
+
+### Q14
+
+Create an original and different plot of the `msleep` data. You may choose to answer the above question you asked, or not.
+
+### Q15
+
+Comment on what your plot shows.
