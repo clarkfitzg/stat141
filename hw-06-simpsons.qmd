@@ -63,8 +63,8 @@ Whickham %>%
 7.  Re-create the visualization depicting the relationship between smoking status and health outcome, faceted by `age_cat`. What changed? What might explain this change? Extend the contingency table from earlier by breaking it down by age category and use it to help your narrative.
 
 ```{r}
-Whickham %>%
-  count(smoker, age_cat, outcome)
+#Whickham %>%
+#  count(smoker, age_cat, outcome)
 ```
 
 8. Come up with your own question and visualization regarding the `Whickham` data.
