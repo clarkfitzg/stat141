@@ -4,23 +4,49 @@ format: html
 editor: visual
 ---
 
-## Quarto
-
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
-
-## Running Code
-
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+Goal: Explain Simpson's paradox.
 
 ```{r}
-1 + 1
+library(tidyverse)
+
+ucbadmit <- read_csv("https://github.com/clarkfitzg/stat141/raw/refs/heads/main/data/ucbadmit.csv")
 ```
 
-You can add options to executable code like this
+## 1- UCB admissions
+
+`ucbadmit` contains data on applicants to graduate school at Berkeley for the six largest departments in 1973 classified by admission and sex.
 
 ```{r}
-#| echo: false
-2 * 2
+ucbadmit %>%
+  count(gender, admit)
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+1.  What proportion of males were admitted?
+2.  What proportion of females were admitted?
+3.  Does admission appear to be fair with regards to gender?
+
+## 2 - Department A
+
+```{r}
+ucbadmit %>%
+  count(dept, gender, admit)
+```
+
+1.  What proportion of males were admitted in department A?
+2.  What proportion of females were admitted in department A?
+3.  Does admission appear to be fair with regards to gender in department A?
+
+## 3 - Extending to all departments
+
+```{r}
+ggplot(ucbadmit, aes(y = gender, fill = admit)) +
+  geom_bar(position = "fill") +
+  facet_wrap(. ~ dept) +
+  scale_x_continuous(labels = scales::label_percent()) +
+  labs(title = "Admissions by gender and department",
+       x = NULL, y = NULL, fill = NULL) +
+  theme(legend.position = "bottom")
+```
+
+1.  Is this the right choice of color for the plot? If not, how should we change it?
+2.  Does admission appear to be fair with regards to gender?
