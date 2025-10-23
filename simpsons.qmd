@@ -50,3 +50,13 @@ ggplot(ucbadmit, aes(y = gender, fill = admit)) +
 
 1.  Is this the right choice of color for the plot? If not, how should we change it?
 2.  Does admission appear to be fair with regards to gender?
+
+4.625
+
+```{r}
+ucbadmit |> 
+  group_by(dept) |>
+  summarize(admitted = 100*sum(admit == "Admitted") / n()) |>
+  ggplot(aes(x = gender, y = dept)) +
+  
+```

@@ -1,0 +1,33 @@
+---
+title: "Project data"
+author: "TODO"
+format:
+  html:
+    self-contained: true
+editor: visual
+---
+
+# 1 Data
+
+_Describe the data set you plan to use for your final project, and why you find it interesting. Include the link to where it can be publicly downloaded._
+
+TODO- write answer
+
+# 2 Load
+
+_Read your data into R. If your data is a CSV file, ending with `.csv`, then the function to use is `read_csv()`. Show how many columns and rows the data set has._
+
+
+```{r}
+# TODO
+```
+
+# 3 Visualize
+
+_Make and comment on one visualization of your data. The purpose is to get familiar with this data set rather than finding the greatest insight, so feel free to keep it simple._
+
+```{r}
+# TODO
+```
+
+TODO- comment
