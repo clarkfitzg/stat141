@@ -20,9 +20,15 @@ ames <- read_csv("https://github.com/clarkfitzg/stat141/raw/refs/heads/main/data
 
 Let's get familiar with this data.
 
+Make a histogram of the sale price.
+
+```{r}
+
+```
+
 ```{r}
 ames |> 
-  ggplot(aes(x = Sale_Price, y = Neighborhood)) +
-  geom_boxplot() +
+  ggplot(aes(x = Neighborhood, y = Sale_Price)) +
+  geom_jitter() +
   theme_minimal()
 ```
