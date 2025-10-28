@@ -6,14 +6,23 @@ editor: visual
 
 Goal: Fit a linear model with R.
 
+```{r}
+library(tidyverse)
+```
+
 ### Data - Ames Housing
 
 From <https://www.openintro.org/book/statdata/index.php?data=ames>
 
 ```{r}
-download.file("http://www.openintro.org/books/statdata/ames.RData",
-              destfile = "ames.RData")
-load("ames.RData")
+ames <- read_csv("https://github.com/clarkfitzg/stat141/raw/refs/heads/main/data/ames2.csv")
 ```
 
-Introduce the idea of a statistical model
+Let's get familiar with this data.
+
+```{r}
+ames |> 
+  ggplot(aes(x = Sale_Price, y = Neighborhood)) +
+  geom_boxplot() +
+  theme_minimal()
+```
