@@ -1,0 +1,19 @@
+---
+title: "intro-model"
+format: html
+editor: visual
+---
+
+Goal: Fit a linear model with R.
+
+### Data - Ames Housing
+
+From <https://www.openintro.org/book/statdata/index.php?data=ames>
+
+```{r}
+download.file("http://www.openintro.org/books/statdata/ames.RData",
+              destfile = "ames.RData")
+load("ames.RData")
+```
+
+Introduce the idea of a statistical model
