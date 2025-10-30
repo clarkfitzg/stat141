@@ -1,0 +1,68 @@
+---
+title: "intro-model"
+format: html
+editor: visual
+---
+
+Goal: Fit a linear model with R.
+
+```{r}
+library(tidyverse)
+```
+
+### Data - Ames Housing
+
+From <https://www.openintro.org/book/statdata/index.php?data=ames>
+
+```{r}
+ames <- read_csv("https://github.com/clarkfitzg/stat141/raw/refs/heads/main/data/ames2.csv")
+```
+
+Let's get familiar with this data.
+
+Make a histogram of the sale price.
+
+```{r}
+
+```
+
+```{r}
+ames |> 
+  ggplot(aes(x = Neighborhood, y = Sale_Price)) +
+  geom_jitter() +
+  theme_minimal()
+```
+
+## Q1
+
+Which numerical variable in `ames` has the largest correlation to `Sale_Price`?
+
+Make a scatter plot of this variable with `Sale_Price` on the y axis.
+
+```{r}
+# TODO
+```
+
+## Q2
+
+Are there any pairs of numerical variables that have a negative correlation?
+
+```{r}
+# TODO
+```
+
+## Q3
+
+Fit a linear model with using `Neighborhood` as the predictor. What are the predictions in each neighborhood?
+
+```{r}
+
+```
+
+## Q4
+
+Calculate the means for each neighborhood. Are they the same as the predictions?
+
+```{r}
+
+```

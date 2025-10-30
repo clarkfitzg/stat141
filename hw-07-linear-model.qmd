@@ -1,0 +1,87 @@
+---
+title: "intro-model"
+author: "TODO"
+format:
+  html:
+    self-contained: true
+editor: visual
+---
+
+Goal: Fit a linear model with R.
+
+```{r}
+library(tidyverse)
+```
+
+### Data - Ames Housing
+
+From <https://www.openintro.org/book/statdata/index.php?data=ames>
+
+```{r}
+ames <- read_csv("https://github.com/clarkfitzg/stat141/raw/refs/heads/main/data/ames2.csv")
+```
+
+```{r}
+ames |> 
+  ggplot(aes(x = Neighborhood, y = Sale_Price)) +
+  geom_jitter() +
+  theme_minimal()
+```
+
+## Q1
+
+Which other numerical variable in `ames` has the largest correlation to `Sale_Price`?
+
+Make a scatter plot of this variable with `Sale_Price` on the y axis.
+
+```{r}
+# TODO
+```
+
+## Q2
+
+Are there any pairs of numerical variables in `ames` that have a negative correlation?
+
+```{r}
+# TODO
+```
+
+## Q3
+
+Fit a linear model with using `Neighborhood` as the predictor. What are the fitted coefficients?
+
+```{r}
+
+```
+
+## Q4
+
+Calculate the means for each neighborhood. Are they the same as the predictions?
+
+```{r}
+
+```
+
+## Q5
+
+Fit a linear model using a numerical column as the predictor for `Sale_Price`. Pick the column that you think will be the best predictor. What are the fitted coefficients?
+
+```{r}
+
+```
+
+## Q6
+
+Change the above plot so that your predictor column is on the x axis, and the predicted home price is on the y axis. Why do you think they call it a linear model?
+
+```{r}
+
+```
+
+## Q7
+
+Come up with your own question and answer for the `ames` data set.
+
+```{r}
+
+```
