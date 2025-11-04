@@ -51,3 +51,19 @@ Y_i = ? + ?X_i + e_i
 $$\
 
 ## 4 Predict
+
+*Make a prediction for a new data point based on your model. Do it in two ways: by manually plugging in the numbers and by using the `predict()`* function in R.
+
+```{r}
+
+```
+
+## 5 Open Ended
+
+*Ask and answer another question on this same data set using regression.*
+
+TODO
+
+```{r}
+
+```
