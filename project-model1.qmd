@@ -1,0 +1,51 @@
+---
+title: "Project linear model"
+author: "TODO"
+format:
+  html:
+    self-contained: true
+editor: visual
+---
+
+For this stage of the project we'll fit a linear model.
+
+```{r}
+library(tidyverse)
+```
+
+## 1 Variables
+
+*Load the data and find a numerical column that you can use as a response (y value) and another column that you can use as a predictor (x value). Show 6 rows of the data with these two columns.*
+
+```{r}
+
+```
+
+*Describe why this prediction problem is interesting to you or someone else. Who would care about these predicted values, and why?*
+
+TODO- write answer.
+
+## 2 Scatter plot
+
+*Make a scatter plot with the response value on the y axis and the predictor value on the x axis. Use `geom_smooth(method = "lm")` to add the least squares line. Does a linear model seem appropriate?*
+
+```{r}
+# TODO
+```
+
+## 3 Model
+
+*Fit a linear model, save it in the variable `mod1` and print it.*
+
+```{r}
+# mod1 <- lm( TODO
+# print(mod1)
+```
+
+*Write the mathematical model it represents, using the fitted coefficients to replace the ? symbols in the equation.*
+
+$$
+Y_i = ? + ?X_i + e_i
+$$\
+
+## 4 Predict
