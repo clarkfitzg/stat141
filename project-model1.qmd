@@ -13,6 +13,8 @@ For this stage of the project we'll fit a linear model.
 library(tidyverse)
 ```
 
+If your data is not suitable for regression, then please find a data set from <https://www.openintro.org/data/>
+
 ## 1 Variables
 
 *Load the data and find a numerical column that you can use as a response (y value) and another column that you can use as a predictor (x value). Show 6 rows of the data with these two columns.*
