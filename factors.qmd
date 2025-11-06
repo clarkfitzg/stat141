@@ -1,0 +1,94 @@
+---
+title: "factors"
+author: "TODO"
+format:
+  html:
+    self-contained: true
+editor: visual
+---
+
+Goal: Create and use factors in R for plotting.
+
+```{r}
+library(tidyverse)
+```
+
+### Data - Ames Housing
+
+From <https://www.openintro.org/book/statdata/index.php?data=ames>
+
+```{r}
+ames <- read_csv("https://github.com/clarkfitzg/stat141/raw/refs/heads/main/data/ames2.csv")
+```
+
+```{r}
+ames |> 
+  ggplot(aes(x = Neighborhood, y = Sale_Price)) +
+  geom_jitter() +
+  theme_minimal()
+```
+
+## Factors
+
+Factors in R represent categorical variables.
+
+```{r}
+head(ames)
+```
+
+Which of the 7 variables in `ames` represent categorical variables (factors)?
+
+Which of the two graphs does a better job representing the data?
+
+What happens when we remove `factor()` and try to use boxplot?
+
+```{r}
+ggplot(ames, aes(factor(Full_Bath), Sale_Price)) +
+  geom_boxplot() +
+  theme_minimal()
+```
+
+## seq
+
+`seq` is a builtin function to create regular sequences.
+
+```{r}
+seq(from = 30, to = 90, by = 5)
+```
+
+Your turn- Use seq() to create this sequence:
+
+```{r}
+c(21, 32, 43, 54, 65)
+```
+
+## 1 neighborhood age
+
+Were the neighborhoods built during different periods? Modify this graph to find out.
+
+Add two regression lines, one for each neighborhood.
+
+```{r}
+ggplot(ames, aes(Year_Built, Sale_Price)) +
+  geom_point(alpha = 0.5, color = "darkgreen") +
+  geom_smooth(method = "lm", color = "red", se = FALSE) +
+  labs(x = "Year Built", y = "Sale Price ($)") +
+  theme_minimal()
+```
+
+## 2 boxplots
+
+In the following, we intended to plot a different box for each year. Why isn't it working? Fix the graph so it matches our intent.
+
+```{r}
+ames |> 
+  ggplot(aes(x = Year_Built, y = Sale_Price)) +
+  geom_boxplot() +
+  theme_minimal()
+```
+
+Now make the same graph, with a box for each decade. Use `cut()` to create a new variable representing the decade built.
+
+```{r}
+
+```
