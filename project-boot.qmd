@@ -1,0 +1,58 @@
+---
+title: "Project bootstrap"
+author: "TODO"
+format:
+  html:
+    self-contained: true
+editor: visual
+---
+
+For this stage of the project we'll use the bootstrap to create confidence intervals for the coefficients of a linear model.
+
+```{r}
+library(tidyverse)
+```
+
+If your data is not suitable for regression, then please find a data set from <https://www.openintro.org/data/>
+
+## 1 bootstrap
+
+Follow the notes from class to create a 90% confidence interval for the coefficients in a linear model, applied to your project data set.
+
+```{r}
+
+```
+
+## 2 plots
+
+Make at least 5 plots of your project data set. They don't have to be good, beautiful, or particularly insightful plots. The idea is to try many different things until you find the best insight worth sharing.
+
+#### 1
+
+```{r}
+
+```
+
+#### 2
+
+```{r}
+
+```
+
+#### 3
+
+```{r}
+
+```
+
+#### 4
+
+```{r}
+
+```
+
+#### 5
+
+```{r}
+
+```
