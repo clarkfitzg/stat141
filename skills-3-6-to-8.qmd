@@ -1,0 +1,64 @@
+---
+title: "skills-3-6-to-8"
+author: "TODO"
+format:
+  html:
+    self-contained: true
+editor: visual
+---
+
+```{r}
+library(tidyverse)
+```
+
+## 3-6 sampling
+
+Use `slice_sample` to create a single bootstrap sample with replacement of the rows in the table `d` below. The sample should have the same number of rows as `d`.
+
+```{r}
+numbers <- 1:10
+
+d <- tibble(letter = letters[numbers], number = numbers)
+d
+```
+
+## 3-7 percentile
+
+Calculate the 75th percentile of the `price`column in the `diamonds`data.
+
+```{r}
+
+```
+
+## 3-8 simulate
+
+The following code generates 500 samples from an exponential distribution and takes the sample mean. Use `replicate` to repeat this experiment 1000 times, collecting 1000 sample means.
+
+```{r}
+mean(rexp(500))
+```
+
+```{r}
+
+```
+
+The following code rolls two six sided dice 20 times and finds the maximum value. Use `replicate`{style="font-family: Monaco, Menlo, Consolas, \"Courier New\", monospace; font-size: 0.75rem; border-radius: 6px; background-color: rgb(242, 244, 244); border: 1px solid rgb(232, 234, 236); padding: 0.125rem 0.25rem; color: rgb(199, 31, 35);"} to repeat this experiment 500 times, collecting 500 maximum values, and save them into the variable `max20`.
+
+```{r}
+max(sample(6, 20, replace = TRUE) + sample(6, 20, replace = TRUE))
+```
+
+```{r}
+
+```
+
+## Presentation Quality Graphics
+
+In the final project presentation each of you will pick and choose one visualization that represents your best insight into the data. Let's work together to improve this graphic as much as we can.
+
+```{r}
+mpg |>
+  ggplot(aes(x = displ, y = hwy)) +
+  geom_point() +
+  annotate("text", x = 5, y = 40, label = "hello world")
+```
