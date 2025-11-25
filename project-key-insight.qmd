@@ -1,0 +1,49 @@
+---
+title: "Project key insight"
+author: "TODO"
+format:
+  html:
+    self-contained: true
+editor: visual
+---
+
+```{r}
+library(tidyverse)
+```
+
+## 1 data
+
+*Load your data, show the first few rows, and describe what each row represents. Write a paragraph explaining the data to a fellow student in Stat 141.*
+
+```{r}
+
+```
+
+TODO: Write answer here.
+
+## 2 key insight
+
+Make a presentation quality graph highlighting your key insight that includes the following:
+
+1.  Title
+2.  Clear labels for x and y axes
+3.  Good choices of aesthetics
+4.  Good, efficient use of visual space
+5.  Text annotations for notable data points
+6.  Legend if necessary
+
+```{r}
+# TODO
+```
+
+## 3 discussion
+
+*Describe your key insight in 1-3 paragraphs. Why is it interesting? Did the data surprise you? Who would find this insight valuable? How might people apply or act on this insight?*
+
+TODO: Write answer here.
+
+## 4 future steps
+
+*Describe in 1 paragraph a new question or direction that you would like to pursue if you had more time, more statistical knowledge, or different data.*
+
+TODO: Write answer here.
